@@ -1,0 +1,5 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+include_template "templates/template_foo"
+include_template "templates/template_bar"

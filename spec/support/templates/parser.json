@@ -1,0 +1,60 @@
+{
+  "template-parser-json": {
+    "order": 1,
+    "template": "te*",
+    "settings": {
+      "number_of_shards": "1"
+    },
+    "mappings": {
+      "_default_": {
+        "dynamic_templates": [
+          {
+            "template1": {
+              "mapping": {
+                "index": "not_analyzed"
+              },
+              "match": "*"
+            }
+          }
+        ],
+        "properties": {
+          "@timestamp": {
+            "type": "date"
+          },
+          "type1": {
+            "type2": {
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "format": "EEE MMM dd HH:mm:ss Z YYYY",
+            "type": "date"
+          },
+          "host_name": {
+            "index": "not_analyzed",
+            "type": "string"
+          },
+          "props": {
+            "type": "prop_test"
+          }
+        }
+      },
+      "type1": {
+        "_source": {
+          "enabled": false
+        }
+      }
+    },
+    "aliases": {
+      "alias2": {
+        "filter": {
+          "term": {
+            "user": "kimchy"
+          }
+        },
+        "index_routing": "kimchy",
+        "search_routing": "kimchy"
+      }
+    }
+  }
+}
